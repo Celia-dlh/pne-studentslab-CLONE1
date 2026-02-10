@@ -7,11 +7,11 @@ def fibon(n):
         c = a + b
         a = b  # change of variable
         b = c
-        i = c
+
     return c
 
 n5 = fibon(5)
 n10 = fibon(10)
 n15 = fibon(15)
-print(f"the 5th Fibonacci term: {n5} \nthe 10th Fibonacci term: {n10} \nthe 10th Fibonacci term: {n15}")
+print(f"the 5th Fibonacci term: {n5} \nthe 10th Fibonacci term: {n10} \nthe 15th Fibonacci term: {n15}")
 
