@@ -1,0 +1,3 @@
+The error is located in line 11. The problem is ZeroDivisionError: division by zero. This happens trying to compute Result 2 ( second print) because t1=0 , so t3 can't be computed
+THis will happened anytime c and d are equal due to the operation on def g, that will make t1=0 and the division on the next step by them won't be posible.
+If we skip the print of Result 2 , the program will work and print the other three.
