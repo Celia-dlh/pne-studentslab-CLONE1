@@ -7,8 +7,12 @@ def count_bases(seq):
     return bases
 
 
-if __name__= " __name__":
-    SEQUENCE =  input("Introduce sequence:" )
+if __name__== " __main__":
+    seq =  input("Introduce sequence:" )
     print("Total length:" , len(seq))
 
-    result =
+    result = count_bases(seq)
+
+    for base, count in result.items():
+        print(f"{base}: {count}")
+

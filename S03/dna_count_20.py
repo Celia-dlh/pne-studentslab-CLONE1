@@ -34,19 +34,35 @@ for seq in lines:
          bases[base] += 1
 
 
- for base, count in bases.items():
+for base, count in bases.items():
+    print("Total number of bases", total_number)
 
-print("Total number of bases", total_number)
+# option 1
+    #f = open("dna.txt" , "r")
+    #lines = f.readlines()
+    # f.close()
 
-# real es
-f = open("dna.txt" , "n")
+from  dna_count_funtion import count_bases
+if __name__ == " __main__":
 
-lines = f.readlines()
-f.close()
+    with open("dna.txt" , "r") as f: #the same but you don't have to close, is saver
+        lines = f.readlines()
 
-print("From files" , lines)
+    total_numbers = 0
+    bases = {"A": 0 , "C": 0 ,"T": 0 ,"G": 0}
 
-with open("dna.txt" , "n") as f: #the same but you don't have to close, is saver
+    for seq in lines:
+        seq = seq.strip() #remove space and realine seq
+        total_number += len(seq)
+        result = count_bases(seq)
+        for key in result:
+            bases[key] += result[key]
+
+
+    print("Total number of bases:" , total_number)
+    for base, count in bases.items():
+        print(f"{base}: {count}")
+
 
 
 
