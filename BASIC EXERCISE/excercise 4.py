@@ -10,7 +10,7 @@ def grading(score):
     elif score <= 2.9 :
         print ( f"Score {score} -> F")
     elif score >= 9:
-        print (f"Score {score} -> A")
+        print ( f"Score {score} -> A")
 
 n_1 = grading(9.5)
 n_2 = grading(7.0)
