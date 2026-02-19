@@ -11,14 +11,27 @@ def seq_read_fasta(filename):
 def seq_len(seq):
     return len(seq)
 
+def seq_count_base(seq, base):
+    return seq.count(base)
 
-#def seq_count_base(seq, base):
+def seq_count(seq):
+    bases = ["A" , "T" , "C" , "G"]
+    bases_count = {}
+    for base in bases:
+        bases_count[base] = seq.count(base)
+    return bases_count
 
+def seq_reverse(seq):
+    return seq[::-1]
 
-#def seq_count(seq):
-
-
-#def seq_reverse(seq):
-
-
-#def seq_complement(seq):
+def seq_complement(seq):
+    complement_dict = {
+        "A": "T",
+        "T": "A",
+        "C": "G",
+        "G": "C"
+    }
+    complement = ""
+    for base in seq:
+        complement = complement_dict[base] + complement
+    return complement
