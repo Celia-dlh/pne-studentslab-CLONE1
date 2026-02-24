@@ -1,0 +1,10 @@
+A class is the template we use for creating objects, so an object is going to be an instance of that class.
+Within the class we define and implement all the methods that the objects of that class will have.
+Let's create a very simple class for working with sequences. We start by defining an empty class:
+class Seq:
+    """A class for representing sequences"""
+    pass
+
+When the class is defined, we can create objects of that class as shown below:
+
+
