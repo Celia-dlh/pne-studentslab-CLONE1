@@ -15,7 +15,6 @@ class Seq:
     def __str__(self):
         return self.strbases
 
-
 #Main program
 s1 = Seq("ACCTGC")
 s2 = Seq("Hello? Am I a valid sequence?")
