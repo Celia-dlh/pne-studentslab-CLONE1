@@ -1,0 +1,8 @@
+Destination IP: 212.128.255.73 ; Name: f-l3208-pc09 (Self); Times: 0.026 ms , 0.013 ms , 0.016 ms
+Destination IP: 212.128.255.129 ; Name: f-l3208-pc10 ; Times: 0.441 ms , 0.388 ms , 0.389 ms
+Destination IP: 8.8.8.8 ; Name: Google ; Times: 2.54 ms , 2.68 ms , 2.90 ms
+Destination IP: 10.218.182.27 ; Name: Mobile; Times:
+Name: www.urjc.es ; Times: 2.03 ms, 1.65 ms ,1.68 ms
+Name: github.com ; Times: 35.2 ms, 35.4 ms, 35.2 ms
+Name: wikipedia.org ; Times: 16.3 ms , 16.7 ms , 16.5 ms
+Name: newdomain.com.au; Times:2.58 ms , 2.80 ms , 2.96 ms
