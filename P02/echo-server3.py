@@ -5,7 +5,7 @@ import termcolor
 # Finally we will close the socket.
 
 PORT = 8080
-IP = "212.128.255.82" # MY IP
+IP = "212.128.255.81" # MY IP
 number_con = 0
 # -- Step 1: create the socket
 ls = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -60,10 +60,9 @@ while True:
 
         # -- The message has to be encoded into bytes
         cs.send(response.encode())
-        if number_con == 5 :
-            for i in
 
         # -- Close the data socket
         cs.close()
-
-print(f"Client {number_con}: {c_tuples}")
+        if number_con == 5 :
+            for i in range (5):
+                print(f"Client {i}: {c_tuples}")
