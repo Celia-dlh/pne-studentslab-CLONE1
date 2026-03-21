@@ -16,56 +16,27 @@ def process_client(s):
 
     print("Request:", req_line)
 
+    flag = False
     for base in bases:
-        if "GET /info/ " in req_line:
-            with open("html/info/A.html", "r") as i:
+        if f"GET /info/{base} " in req_line:
+            with open(f"html/info/{base}.html", "r") as i:
                 body = i.read()
 
             status_line = "HTTP/1.1 200 OK\n"
             header = "Content-Type: text/html\n"
             header += f"Content-Length: {len(body)}\n"
-
             response = status_line + header + "\n" + body
-
-    elif "GET /info/C " in req_line:
-        with open("html/info/C.html", "r") as i:
+            s.send(response.encode())
+            flag = True
+    if not flag:
+        with open(f"html/error.html", "r") as i:
             body = i.read()
 
         status_line = "HTTP/1.1 200 OK\n"
         header = "Content-Type: text/html\n"
         header += f"Content-Length: {len(body)}\n"
-
         response = status_line + header + "\n" + body
-
-    elif "GET /info/T " in req_line:
-        with open("html/info/T.html", "r") as i:
-            body = i.read()
-
-        status_line = "HTTP/1.1 200 OK\n"
-        header = "Content-Type: text/html\n"
-        header += f"Content-Length: {len(body)}\n"
-
-        response = status_line + header + "\n" + body
-
-    elif "GET /info/G " in req_line:
-        with open("html/info/G.html", "r") as i:
-            body = i.read()
-
-        status_line = "HTTP/1.1 200 OK\n"
-        header = "Content-Type: text/html\n"
-        header += f"Content-Length: {len(body)}\n"
-
-        response = status_line + header + "\n" + body
-
-    else:
-        status_line = "HTTP/1.1 200 OK\n"
-        header = "Content-Type: text/html\n"
-        header += "Content-Length: 0\n"
-
-        response = status_line + header + "\n"
-
-    s.send(response.encode())
-
+        s.send(response.encode())
 
 ls = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ls.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

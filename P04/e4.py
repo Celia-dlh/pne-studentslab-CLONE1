@@ -2,6 +2,7 @@ import socket
 
 IP = "127.0.0.1"
 PORT = 8080
+bases = [ "A" , "C" , "G" , "T"]
 
 def process_client(s):
     # -- Receive the request message
@@ -14,54 +15,28 @@ def process_client(s):
 
     print("Request:", req_line)
 
-    if "GET /info/A " in req_line:
-        with open("html/info/A.html", "r") as i:
-            body = i.read()
+    flag = False
 
-        status_line = "HTTP/1.1 200 OK\n"
-        header = "Content-Type: text/html\n"
-        header += f"Content-Length: {len(body)}\n"
+    for base in bases:
+        if f"GET /info/{base} " in req_line:
+            with open(f"html/info/{base}.html", "r") as i:
+                body = i.read()
 
-        response = status_line + header + "\n" + body
+            status_line = "HTTP/1.1 200 OK\n"
+            header = "Content-Type: text/html\n"
+            header += f"Content-Length: {len(body)}\n"
 
-    elif "GET /info/C " in req_line:
-        with open("html/info/C.html", "r") as i:
-            body = i.read()
-
-        status_line = "HTTP/1.1 200 OK\n"
-        header = "Content-Type: text/html\n"
-        header += f"Content-Length: {len(body)}\n"
-
-        response = status_line + header + "\n" + body
-
-    elif "GET /info/T " in req_line:
-        with open("html/info/T.html", "r") as i:
-            body = i.read()
-
-        status_line = "HTTP/1.1 200 OK\n"
-        header = "Content-Type: text/html\n"
-        header += f"Content-Length: {len(body)}\n"
-
-        response = status_line + header + "\n" + body
-
-    elif "GET /info/G " in req_line:
-        with open("html/info/G.html", "r") as i:
-            body = i.read()
-
-        status_line = "HTTP/1.1 200 OK\n"
-        header = "Content-Type: text/html\n"
-        header += f"Content-Length: {len(body)}\n"
-
-        response = status_line + header + "\n" + body
-
-    else:
+            response = status_line + header + "\n" + body
+            s.send(response.encode())
+            flag = False
+    if not flag:
         status_line = "HTTP/1.1 200 OK\n"
         header = "Content-Type: text/html\n"
         header += "Content-Length: 0\n"
 
         response = status_line + header + "\n"
+        s.send(response.encode())
 
-    s.send(response.encode())
 
 
 ls = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -69,7 +44,6 @@ ls.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 ls.bind((IP, PORT))
 ls.listen()
 print("server configured!")
-
 
 while True:
     print("Waiting for clients....")
